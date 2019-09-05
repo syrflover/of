@@ -1,0 +1,40 @@
+{
+    "name": "@syrflover/of",
+    "version": "0.0.1",
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "scripts": {
+        "test": "ts-mocha test/**/*.ts",
+        "build": "rm -rf ./build && tsc -p tsconfig.json",
+        "prepublishOnly": "npm run build"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Lee Tae Woo",
+        "email": "syr@meu.works"
+    },
+    "bugs": {
+        "url": "https://github.com/syrflover/of/issues"
+    },
+    "engines": {
+        "node": ">=8"
+    },
+    "keywords": [
+        "error handling",
+        "promise",
+        "async",
+        "await",
+        "result"
+    ],
+    "devDependencies": {
+        "@types/chai": "^4.2.1",
+        "@types/mocha": "^5.2.7",
+        "chai": "^4.2.0",
+        "mocha": "^6.2.0",
+        "ts-mocha": "^6.0.0",
+        "ts-node": "^8.3.0",
+        "tslint": "^5.19.0",
+        "tslint-config-airbnb": "^5.11.1",
+        "typescript": "^3.6.2"
+    }
+}
