@@ -1,18 +1,17 @@
-export type Result<T, E> = [T, E?];
+export type Result<T = any, E = any> = [T, E?];
 
-export async function of<T, E>(p: Promise<T>): Promise<Result<T, E>> {
+export async function of<T extends Promise<any>, E>(
+    p: T,
+): Promise<Result<T extends Promise<infer P> ? P : any, E>> {
     return p
         .then((r) => {
-            return [r] as Result<T, E>;
+            return [r] as Result;
         })
         .catch((error) => {
             if (error !== undefined && error !== null) {
-                return [undefined as any, error] as Result<T, E>;
+                return [undefined as any, error];
             }
-            return [
-                undefined as any,
-                new Error('Empty Error') as any,
-            ] as Result<T, E>;
+            return [undefined as any, new Error('Empty Error') as any];
         });
 }
 
